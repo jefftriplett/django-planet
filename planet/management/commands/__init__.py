@@ -21,9 +21,10 @@ from planet.models import (Blog, Generator, Feed, FeedLink, Post, PostLink,
         Author, PostAuthorData, Enclosure, Category)
 from planet.signals import post_created
 
+from planet.settings import PLANET_LOGLEVEL
 
 plogger = logging.getLogger('PlanetLogger')
-plogger.setLevel(settings.PLANET_LOGLEVEL)
+plogger.setLevel(PLANET_LOGLEVEL)
 handler = logging.StreamHandler()
 plogger.addHandler(handler)
 
