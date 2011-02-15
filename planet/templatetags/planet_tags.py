@@ -12,8 +12,9 @@ from django.utils.safestring import mark_safe
 from django.template import TemplateSyntaxError, Node, loader, Variable
 from django.utils.translation import ugettext as _
 from django.utils.text import smart_split
+from django.conf import settings
 
-from planet.models import Author, Feed, Blog, Post
+from planet.models import Author, Feed, Post
 
 from tagging.models import Tag, TaggedItem
 
@@ -58,12 +59,13 @@ def related_tags_for(tag, count=20):
     return {"related_tags": related_tags[:count]}
 
 
-@register.inclusion_tag("planet/dummy.html")
-def post_details(post, template="planet/posts/details.html"):
+@register.inclusion_tag("planet/dummy.html", takes_context=True)
+def post_details(context, post, template="planet/posts/details.html"):
     """
     Displays info about a post: title, date, feed and tags.
     """
-    return {"template": template, "post": post}
+    context.update({"template": template, "post": post})
+    return context
 
 
 @register.inclusion_tag("planet/posts/full_details.html")
@@ -126,11 +128,13 @@ def feeds_for_author(author):
 
 
 class PlanetPostList(Node):
-    def __init__(self, limit=None, tag=None, category=None, template=None):
+    def __init__(self, limit=None, tag=None, category=None, template=None,
+            hidden=None):
         self.limit = limit
         self.tag = tag
         self.category = category
         self.template = template
+        self.hidden = hidden
 
     def resolve(self, context, vars):
         """
@@ -143,12 +147,15 @@ class PlanetPostList(Node):
                 self.__setattr__(var, Variable(val_var).resolve(context))
 
     def process(self, context):
-        self.resolve(context, ('tag', 'category', 'template', 'limit'))
-        if self.tag is not None:
-            posts = TaggedItem.objects.get_by_model(
-                Post.site_objects, self.tag)
+        self.resolve(context, ('tag', 'category', 'template', 'limit',
+                               'hidden'))
+        if self.hidden is not None and self.hidden:
+            posts = Post.objects.filter(feed__site=settings.SITE_ID)
         else:
             posts = Post.site_objects
+        if self.tag is not None:
+            posts = TaggedItem.objects.get_by_model(posts,
+                                                    self.tag)
 
         #select also related objects, in this way we avoid future queries to
         #retrieve for example the blog name
@@ -158,8 +165,8 @@ class PlanetPostList(Node):
             posts = posts.filter(feed__category__title=self.category)
 
         ##TODO: test under mysql and sqlite
-        posts = posts.extra(
-            select={'date': "COALESCE(planet_post.date_modified, planet_post.date_created)"}
+        posts = posts.extra(select={'date':
+            "COALESCE(planet_post.date_modified, planet_post.date_created)"}
         ).order_by('-date')
 
         if self.limit is not None:
@@ -187,11 +194,12 @@ def planet_post_list(__, token):
         tag: select only Posts that matches this tag
         category: select only Posts that belongs to Feeds under this Category
         template: render using a different template
+        hidden: show also hidden posts
 
     Examples:
         {% planet_post_list with limit=10 tag=tag %}
         {% planet_post_list with tag="Redis" %}
-        {% planet_post_list with category="PyPy" %}
+        {% planet_post_list with category="PyPy" hidden="True" %}
     """
     bits = list(smart_split(token.contents))
     len_bits = len(bits)
@@ -202,7 +210,7 @@ def planet_post_list(__, token):
         for i in range(2, len_bits):
             try:
                 name, value = bits[i].split('=')
-                if name in ('tag', 'category', 'template', 'limit'):
+                if name in ('tag', 'category', 'template', 'limit', 'hidden'):
                     kwargs[str(name)] = value
                 else:
                     raise TemplateSyntaxError(_("%(tag)s tag was given an invalid option: '%(option)s'") % {

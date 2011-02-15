@@ -49,7 +49,7 @@ class PostManager(models.Manager):
     """
     def get_query_set(self):
         qs = super(PostManager, self).get_query_set()
-        return qs.filter(feed__site=settings.SITE_ID).distinct()
+        return qs.filter(feed__site=settings.SITE_ID, hidden=False).distinct()
 
 
 class PostLinkManager(models.Manager):
