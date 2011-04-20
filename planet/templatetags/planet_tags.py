@@ -5,6 +5,7 @@ Several useful template tags!
 """
 
 import re
+from datetime import datetime, timedelta
 
 from django import template
 from django.template.defaultfilters import stringfilter
@@ -129,12 +130,14 @@ def feeds_for_author(author):
 
 class PlanetPostList(Node):
     def __init__(self, limit=None, tag=None, category=None, template=None,
-            hidden=None):
+            hidden=None, days=None, page=None):
         self.limit = limit
         self.tag = tag
         self.category = category
         self.template = template
         self.hidden = hidden
+        self.days = days
+        self.page = page
 
     def resolve(self, context, vars):
         """
@@ -148,14 +151,13 @@ class PlanetPostList(Node):
 
     def process(self, context):
         self.resolve(context, ('tag', 'category', 'template', 'limit',
-                               'hidden'))
+                               'hidden', 'days', 'page'))
         if self.hidden is not None and self.hidden:
             posts = Post.objects.filter(feed__site=settings.SITE_ID)
         else:
             posts = Post.site_objects
         if self.tag is not None:
-            posts = TaggedItem.objects.get_by_model(posts,
-                                                    self.tag)
+            posts = TaggedItem.objects.get_by_model(posts, self.tag)
 
         #select also related objects, in this way we avoid future queries to
         #retrieve for example the blog name
@@ -165,12 +167,43 @@ class PlanetPostList(Node):
             posts = posts.filter(feed__category__title=self.category)
 
         ##TODO: test under mysql and sqlite
-        posts = posts.extra(select={'date':
-            "COALESCE(planet_post.date_modified, planet_post.date_created)"}
-        ).order_by('-date')
 
-        if self.limit is not None:
-            posts = posts[:self.limit]
+        if self.page is None:
+            self.page = 0
+        else:
+            self.page = int(self.page)
+
+        if self.limit is None or not self.limit:
+            self.limit = 200
+
+        if self.days is not None:
+            self.days = int(self.days)
+
+            # we go back in time, so start_date > (wanted posts) > end_date
+            start_date = datetime.today()
+            if self.page > 0:
+                start_date = start_date - timedelta(days=self.page*self.days)
+            end_date = start_date - timedelta(days=self.days)
+
+            posts = posts.extra(
+                select={
+                    'date':
+                    "COALESCE(planet_post.date_modified, planet_post.date_created)"
+                },
+                order_by=['-date'],
+                where=['COALESCE(planet_post.date_modified, planet_post.date_created) > %s AND COALESCE(planet_post.date_modified, planet_post.date_created) < %s'],
+                params=[end_date, start_date],
+            )
+        else:
+            posts = posts.extra(
+                select={
+                    'date':
+                    "COALESCE(planet_post.date_modified, planet_post.date_created)"
+                },
+                order_by=['-date']
+            )
+
+        posts = posts[:self.limit]
 
         context['posts'] = posts
 
@@ -210,7 +243,8 @@ def planet_post_list(__, token):
         for i in range(2, len_bits):
             try:
                 name, value = bits[i].split('=')
-                if name in ('tag', 'category', 'template', 'limit', 'hidden'):
+                if name in ('tag', 'category', 'template', 'limit', 'hidden',
+                            'days', 'page'):
                     kwargs[str(name)] = value
                 else:
                     raise TemplateSyntaxError(_("%(tag)s tag was given an invalid option: '%(option)s'") % {

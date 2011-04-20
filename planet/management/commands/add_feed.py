@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from django.core.management.base import BaseCommand
-from planet.management.commands import process_feed
+import logging
 from optparse import make_option
+from django.core.management.base import BaseCommand
+
+from planet.management.commands import process_feed
+
 
 class Command(BaseCommand):
     help = "Add a complete blog feed to our db."
