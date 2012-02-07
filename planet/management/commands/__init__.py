@@ -135,6 +135,9 @@ def process_feed(feed_url, create=False, category_title=None):
         else:
             category = None
 
+        if not isinstance(last_modified, datetime):
+            last_modified = datetime.fromtimestamp(time.mktime(last_modified))
+
         planet_feed = Feed(title=title, subtitle=subtitle, blog=blog,
             url=feed_url, rights=rights, info=info, guid=guid,
             image_url=image_url, icon_url=icon_url, language=language,
