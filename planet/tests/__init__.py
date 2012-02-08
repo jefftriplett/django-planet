@@ -58,7 +58,6 @@ class DjangoPlanet(TestCase):
         self.assertEqual(post_count, 16)
         self.assertEqual(feed_count, 1)
 
-#        setattr(feedparser, 'parse', monkey_parse )
         setattr(feedparser, feedparser.parse.__name__, monkey_parse )
         call_command('update_all_feeds')
         post_count = Post.objects.count()
