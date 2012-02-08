@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Django posts in 'It's All Geek to Me'</title><link>http://www.willmcgugan.com/blog/tech/tag/django/</link><description></description><language>en-us</language><lastBuildDate>Mon, 09 May 2011 11:18:04 +0000</lastBuildDate><item><title>Django job at Net Communities</title><link>http://www.willmcgugan.com/blog/tech/2011/5/9/django-job-at-net-communities/</link><description>
+&lt;p&gt;Net Communities are looking for a Python/Django developer to work on an in-house project. It's a contract that would require some on-site work, but they would also consider a full-time developer for the right individual.&lt;/p&gt;
+&lt;p&gt;If you are interested, get in touch with &lt;a href="http://www.netcommunities.com/about-us/contact/" class="external-link" title="www.netcommunities.com"&gt;Andy Evans&lt;/a&gt;.&lt;/p&gt;
+
+</description><pubDate>Mon, 09 May 2011 11:18:04 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2011/5/9/django-job-at-net-communities/</guid></item><item><title>Spatial Bookmarking Service goes Open Source</title><link>http://www.willmcgugan.com/blog/tech/2011/1/9/spatial-bookmarking-service-goes-open-source/</link><description>
+&lt;p&gt;Locidesktop was my coffee shop coding project of last year. I was quite pleased with the results. &lt;a href="http://locidesktop.com" class="external-link" title="locidesktop.com"&gt;Locidesktop.com&lt;/a&gt; has been happily serving link desktops to some loyal visitors for months now &amp;ndash; with no maintenance required on my part (a good thing because I've been busy with other projects).&lt;/p&gt;
+&lt;p&gt;Rather than let the project stagnate while I do other things, I have released it as open source with the hope that other Python/Django developers will pick it up and add new features. I had never really anticipated that anyone other than myself would see the code, so it is lacking in comments and documentations, but there are some nice features that may be of interest. For instance, there's a system to expose a REST API that factors out a lot of Python bioler-plate code and corresponding javascript code exposes the desktop functionality to the browser.&lt;/p&gt;
+&lt;p&gt;There's also a pretty powerful caching system that makes rendering a desktop blindingly fast. I may have gone overboard with that, given my traffic rates. But I guess it is best to have more capacity than you need.&lt;/p&gt;
+&lt;p&gt;If you want to look through the code or fork the project, it is available on Github:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/willmcgugan/Locidesktop" class="external-link" title="github.com"&gt;Locidesktop code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The only thing missing from the open source version is a single-site theme I purchased from &lt;a href="http://themeforest.net" class="external-link" title="themeforest.net"&gt;themeforest.net&lt;/a&gt;, used in a few pages such as the about &amp;amp; privacy urls. The desktops themselves are identical to the live site because I did those myself. You can tell because of the minimalist design reflecting my artistic abilities (minimal).&lt;/p&gt;
+&lt;p&gt;There's a README in the project that will help you get started, but other than that you may have to figure things out for yourself. It's a pretty standard Django project, although I do use &lt;a href="http://jinja.pocoo.org/" class="external-link" title="jinja.pocoo.org"&gt;Jinja&lt;/a&gt; templates rather than Django templates. If you have any questions, please ask them in the comments, so at least there is a central repository for issues.&lt;/p&gt;
+&lt;p&gt;For more information on Locidesktop, see my &lt;a href="http://willmcgugan.com/tag/loci-desktop/" class="external-link" title="willmcgugan.com"&gt;previous posts&lt;/a&gt; on the subject.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; I had to recreate the repos to remove a bunch of temp files and mercurial data. If you forked before 9am GMT, 10th Jan, you may want to get this new repos.&lt;/p&gt;
+
+</description><pubDate>Sun, 09 Jan 2011 18:27:41 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2011/1/9/spatial-bookmarking-service-goes-open-source/</guid></item><item><title>What to do with Locidesktop?</title><link>http://www.willmcgugan.com/blog/tech/2010/6/30/what-to-do-with-locidesktop/</link><description>
+&lt;p&gt;So what to do with &lt;a href="http://locidesktop.com" class="external-link" title="locidesktop.com"&gt;locidesktop.com&lt;/a&gt;? It's a desktop-like website bookmarking tool &amp;ndash; if you haven't seen it, take a quick look at this &lt;a href="http://locidesktop.com/will/test/" class="external-link" title="locidesktop.com"&gt;example desktop&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I built Loci Desktop a few months ago and promoted it on a few geek sites. It's been running ever since, with no maintenance from myself, happily serving up start pages to a &lt;em&gt;small&lt;/em&gt; number of regular users. There was a buzz when I promoted it, people were largely impressed, some were indifferent, but few ended up using it regularly. So now I'm left with a quandary.&lt;/p&gt;
+&lt;p&gt;I could try and promote it. But to what end? It's not like I need a certain number of visitors to cover the hosting. I'm using the same VPS as I am for my blog, and I designed Locidesktop to be ultra-low bandwidth anyway &amp;ndash; so it effectively costs me nothing to run.&lt;/p&gt;
+&lt;p&gt;One option would be to sell the entire site outright, as the domain and technology rights. But there is currently no way of monetizing it and I doubt anyone would be interested as a commercial venture.&lt;/p&gt;
+&lt;p&gt;I could try and license it as a b2b service. A few people have commented that it would be a useful intranet service. I'm not sure about this, but it sounds plausible.&lt;/p&gt;
+&lt;p&gt;Alternatively, I could give back to the Django community and release it as open source, which I imagine would be the popular thing to do. Money isn't my primary motivator (a close second perhaps), so I wouldn't be averse to doing this. Thing is though, it would require work on my part to document it and maintain it, and I have other open source projects I would prefer to concentrate on. But I can't deny that it would be cool to see Locidesktop sites popping up over the interwebs.&lt;/p&gt;
+&lt;p&gt;Finally, I could just leave it as is. I'm pleased with how it turned out, and I have a few loyal users. Maybe I should just be satisfied.&lt;/p&gt;
+&lt;p&gt;Any options I haven't considered? Leave a comment&amp;#8230;&lt;/p&gt;
+
+</description><pubDate>Wed, 30 Jun 2010 20:02:52 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/6/30/what-to-do-with-locidesktop/</guid></item><item><title>PyFilesystem 0.3 released</title><link>http://www.willmcgugan.com/blog/tech/2010/6/20/pyfilesystem-03-released/</link><description>
+&lt;p&gt;I am pleased to announce a new version of &lt;a href="http://code.google.com/p/pyfilesystem/" class="external-link" title="code.google.com"&gt;PyFilesystem&lt;/a&gt; (0.3), which is a Python module that provides a common interface to many kinds of filesystem. Basically it provides a way of working with files and directories that is exactly the same, regardless of how and where the file information is stored. Even if you don't plan on working with anything other than the files and directories on your hard-drive, PyFilesystem can simplify your code and reduce the potential of error.&lt;/p&gt;
+&lt;p&gt;PyFilesystem is a joint effort by myself and &lt;a href="http://www.rfk.id.au/" class="external-link" title="www.rfk.id.au"&gt;Ryan Kelly&lt;/a&gt;, who has created a number of new FS implementations such as Amazon S3 support and  Secure FTP, and some pretty cool features such as FUSE support and Django storage integration.&lt;/p&gt;
+&lt;p&gt;As an example of how awesome this package is, take a look at the following 6 lines of code, which creates a &lt;a href="http://en.wikipedia.org/wiki/RAM_disk" class="external-link" title="en.wikipedia.org"&gt;ramdrive&lt;/a&gt;:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;fs.osfs&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;OSFS&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;fs.memoryfs&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MemoryFS&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;fs.expose&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fuse&lt;/span&gt;
+
+&lt;span class="n"&gt;home_fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;OSFS&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;~/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;home_fs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;makedir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ramdrive&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;allow_recreate&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fuse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MemoryFS&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;home_fs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getsyspath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ramdrive&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you run this, a directory called &lt;code&gt;ramdrive&lt;/code&gt; will appear in your home folder, the contents of which are stored purely in memory.&lt;/p&gt;
+&lt;p&gt;I prepared a screencast that gives a quick demonstration of some features &amp;ndash; because if a picture is worth a thousand words, this video must be worth fifteen thousand words a second:&lt;/p&gt;
+
+
+&lt;object width="522" height="391"&gt;&lt;param name="allowfullscreen" value="true" /&gt;&lt;param name="allowscriptaccess" value="always" /&gt;&lt;param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12680842&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" /&gt;&lt;embed src="http://vimeo.com/moogaloop.swf?clip_id=12680842&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="522" height="391"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;p&gt;&lt;a href="http://vimeo.com/12680842"&gt;PyFilesystem screencast&lt;/a&gt; from &lt;a href="http://vimeo.com/user4080742"&gt;Will McGugan&lt;/a&gt; on &lt;a href="http://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;p&gt;See the &lt;a href="http://code.google.com/p/pyfilesystem/" class="external-link" title="code.google.com"&gt;project page&lt;/a&gt; on google code for more information, including API docs. There are also a couple of &lt;a href="http://www.willmcgugan.com/tag/fs/" class="external-link" title="www.willmcgugan.com"&gt;blog posts&lt;/a&gt; that will give a some more context.&lt;/p&gt;
+&lt;p&gt;This release has reached a good level of stability and maturity. I'd like to invite as many Pythonistas as possible to check out this module and possibly contribute to the project.&lt;/p&gt;
+
+</description><pubDate>Sun, 20 Jun 2010 17:24:02 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/6/20/pyfilesystem-03-released/</guid></item><item><title>Review of Django 1.2 E-commerce</title><link>http://www.willmcgugan.com/blog/tech/2010/6/19/review-of-django-12-e-commerce/</link><description>
+&lt;p&gt;I've worked with Django for more than two years now. The majority of the sites I have worked on have been social-networking or content based, but I have yet to do any serious work on a site where the main purpose is to advertise and sell products. So I when a copy of &amp;lsquo;Django 1.2 e-commerce&amp;rsquo; landed on my desk I was intrigued by what it might cover that I hadn't been exposed to with other fields of Django development.&lt;/p&gt;
+
+
+
+
+
+
+&lt;a href="/media/uploads/images/ecommerce.jpg" target="_blank"&gt;
+
+
+    &lt;div id="oi-ecommerce" class="left" style="line-height:0;"&gt;
+        &lt;div style="width:200px; height:246px; position:relative; overflow:hidden;"&gt;
+
+            &lt;img src="/media/uploads/images/thumbs/ecommerce_200x246.jpg" width="200" height="246" alt="Django 1.2 e-commerce" title="Django 1.2 e-commerce"&gt;&lt;/img&gt;
+
+            &lt;div class="overlay-outer" style="position:relative; top:0px; height:246px; "&gt;
+                &lt;div style="width:200px; height:246px; top:-246"
+                    class="image-overlay-background" &gt;
+                &lt;/div&gt;
+                &lt;div style="width:200px;height:246px;top:-246px;"
+                     class="image-overlay"&gt;
+                    
+                    &lt;div class="caption" style="width:200px;"&gt;
+                    &lt;p&gt;Django 1.2 E-commerce&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id="oiarea-ecommerce" style="z-index:40;width:200px; height:246px; position:relative; top:-492px;"&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/a&gt;
+
+
+&lt;p&gt;The book starts out with a brief run-down of Django. The first chapter is more of a explanation of the philosophy behind Django, and definitely not a tutorial. Which I think is fair enough; if you are building an e-commerce site, you are probably a professional Python developer and there are plenty of books to get you up to speed with Django. In the second chapter, the author runs through a simple web-shop application with an inventory and a &amp;lsquo;buy now&amp;rsquo; button &amp;ndash; which seemed more like a confidence building exercise than anything else, but it does do a good job of demonstrating how simple it can be to build this kind of application with Django.&lt;/p&gt;
+&lt;p&gt;The subsequent chapters go in to detail regarding managing users, shopping-carts and taking payments with Google Checkout and Amazon services. I've never used these payment services, so I found the information particularly interesting. I like the author's approach of making generic views in order to share functionality across payment services, but I would have liked some more detail in to the APIs involved.&lt;/p&gt;
+&lt;p&gt;Chapter 6 was a surprise, it covers a variety of modules that you can use to add powerful search capabilities to your application. Django's database querying will only get you so far with searching, if you need more sophisticated searching of the kind you would expect from Google then you will need to integrate one of a number of external modules and services, which chapter 6 covers pretty well. The following chapter covers exposing data via several APIs, and creating PDF reports with ReportLab, but not in any great detail.&lt;/p&gt;
+&lt;p&gt;I was impressed with chapter 8, which covers writing JavaScript to create rich AJAX interfaces &amp;ndash; something which is pretty much expected in a modern web-site. I would have preferred a more detail here, but only because I have a particular interest in front-end technologies. The next chapter explains how to integrate a Django application with Amazon payment services and S3 storage to sell digital goods, and goes it to more detail than other chapters.&lt;/p&gt;
+&lt;p&gt;The final chapter covers a number of options you will have for deploying your application. If your application is moderately sophisticated and has many components, deployment can be a tricky affair. This chapter explains how Python technologies such as Fabric, Buildout and Virtualenv can ease deployment headaches. It also covers serving the site with Apache and &amp;lsquo;mod_wsgi&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;The code snippets in this book are pretty good at demonstrating the subjects covered, but I did notice some quite glaring syntax errors in several of the code examples. The errors weren't subtle either; they would result in the code not even running. I suspect that many of them were likely to be the result of a non-technical editor re-formating the code and not a mistake on the part of the author, but there were also a number of programming errors and bad practices which were a little disapointing to see in a book aimed at professionals. For instance, the author consistently used the &amp;lsquo;is&amp;rsquo; operator in place of the equality operator (they are not interchangable even though they may appear to be).&lt;/p&gt;
+&lt;p&gt;Overall, my impression of this book was favourable. It's definitely not a tutorial book in that its not going to teach you any new skills &amp;ndash; since it covers so many technologies and doesn't go in to great detail about any of them. What it will do is give you a grounding of the components in an e-commerce system. If you are looking to build some kind of web-shop in Django then I would recommend this book. It's less of an essential purchase if you aren't working with e-commerce, but since many of the topics discussed in Django 1.2 e-commerce are applicable to other web-sites you may still want to check this book out.&lt;/p&gt;
+
+</description><pubDate>Sat, 19 Jun 2010 17:35:56 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/6/19/review-of-django-12-e-commerce/</guid></item><item><title>Announcing Sore Thumb, a thumbnail and image processing module for Django</title><link>http://www.willmcgugan.com/blog/tech/2010/6/14/announcing-sore-thumb-a-thumbnail-and-image-processing-module-for-django/</link><description>
+&lt;p&gt;I recently worked on the re-design of &lt;a href="http://2degreesnetwork.com" class="external-link" title="2degreesnetwork.com"&gt;2 Degrees&lt;/a&gt;, which required a lot of image processing on thumbnails. The thumbnails where to be in a variety of different sizes, all with rounded corners and keylines on a selection of virtually identical off-white backgrounds and gradients. And they all had to work on IE6 *spit* &lt;em&gt;without&lt;/em&gt; the transparency hack.&lt;/p&gt;
+
+
+
+
+
+
+&lt;a href="/media/uploads/images/thumbs.png" target="_blank"&gt;
+
+
+    &lt;div id="oi-thumbs" class="left" style="line-height:0;"&gt;
+        &lt;div style="width:265px; height:219px; position:relative; overflow:hidden;"&gt;
+
+            &lt;img src="/media/uploads/images/thumbs/thumbs_265x219.jpg" width="265" height="219" alt="Sorethumb examples" title="Sorethumb examples"&gt;&lt;/img&gt;
+
+            &lt;div class="overlay-outer" style="position:relative; top:0px; height:219px; "&gt;
+                &lt;div style="width:265px; height:219px; top:-219"
+                    class="image-overlay-background" &gt;
+                &lt;/div&gt;
+                &lt;div style="width:265px;height:219px;top:-219px;"
+                     class="image-overlay"&gt;
+                    
+                    &lt;div class="caption" style="width:265px;"&gt;
+                    &lt;p&gt;A variety of thumbnails generated by Sore Thumb&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id="oiarea-thumbs" style="z-index:40;width:265px; height:219px; position:relative; top:-438px;"&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/a&gt;
+
+
+&lt;p&gt;A lesser engineer may have told the front-end developer where to stick his rounded corners, but I didn't want see a grown man cry, so I built &lt;a href="http://code.google.com/p/sorethumb/" class="external-link" title="code.google.com"&gt;Sore Thumb&lt;/a&gt;, an &lt;em&gt;on-the-fly&lt;/em&gt; thumbnail and image processing system for Django.&lt;/p&gt;
+&lt;p&gt;Sore Thumb uses a declarative method of defining thumbnails, similar to Django's model and form definitions. Here's an example of how to declare a thumbnail processor that produces a 120x100 pixel thumbnail with 10 pixel rounded corners and a dark grey keyline:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sorethumb.djangothumbnail&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DjangoThumbnail&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sorethumb.filters.defaultfilters&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ThumbnailFilter&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sorethumb.filters.drawfilters&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RoundedCornerFilter&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;RoundedCornersEdged&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;DjangoThumbnail&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;png&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;filters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ThumbnailFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;120&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;100&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+               &lt;span class="n"&gt;RoundedCornerFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;border&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;#333&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once this class has been imported, the thumbnail processor will be available in templates via the &lt;code&gt;sorethumb&lt;/code&gt; filter which takes a Django &lt;code&gt;FileField&lt;/code&gt; and returns the url to the thumbnail.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;load&lt;/span&gt; &lt;span class="nv"&gt;sorethumb&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+
+&lt;span class="x"&gt;&amp;lt;img src=&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;profile.photo&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;sorethumb&lt;/span&gt;&lt;span class="s2"&gt;:&amp;quot;rounded_corners_edged&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt; /&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You will also need to add &lt;code&gt;sorethumb&lt;/code&gt; to your INSTALLED_APPS for this to work.&lt;/p&gt;
+
+
+
+&lt;p&gt;That's pretty much all there is to working with Sore Thumb, see these &lt;a href="http://willmcgugan.com/static/sorethumb.html" class="external-link" title="willmcgugan.com"&gt;examples&lt;/a&gt; for inspiration and the &lt;a href="http://packages.python.org/sorethumb/" class="external-link" title="packages.python.org"&gt;documentation&lt;/a&gt; for the details.&lt;/p&gt;
+&lt;p&gt;You can install sorethumb with easy_install, PIP, or directly from source:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;easy_install -U sorethumb&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Please let me know what you think of Sore Thumb. I'd rather not spend too much time maintaining it, but since most of the code has been in production for a number of months already, there shouldn't be many changes required. If you have any feature requests or bug-reports, now would be a good time to raise them while I have the time to do the work!&lt;/p&gt;
+
+</description><pubDate>Mon, 14 Jun 2010 17:02:14 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/6/14/announcing-sore-thumb-a-thumbnail-and-image-processing-module-for-django/</guid></item><item><title>Django E-Commerce</title><link>http://www.willmcgugan.com/blog/tech/2010/5/25/django-e-commerce/</link><description>
+&lt;p&gt;Pakt publishing have released a new Django book called &lt;a href="http://www.packtpub.com/django-1-2-e-commerce-build-powerful-applications/book?utm_source=willmcgugan.com&amp;utm_medium=bookrev&amp;utm_content=blog&amp;utm_campaign=mdb_003483" class="external-link" title="www.packtpub.com"&gt;Django 1.2 E-Commerce&lt;/a&gt;, written by &lt;a href="http://jesselegg.com/" class="external-link" title="jesselegg.com"&gt;Jess Legg&lt;/a&gt;. I'll have a copy soon and post a review here.&lt;/p&gt;
+&lt;p&gt;In the meantime they are offering a &lt;em&gt;free&lt;/em&gt; chapter of the book; &lt;a href="https://www.packtpub.com/sites/default/files/7009-chapter-2-setting-up-shop-in-30-minutes_0.pdf" class="external-link" title="www.packtpub.com"&gt;Chapter 2 Setting up Shop in 30 minutes&lt;/a&gt;.&lt;/p&gt;
+
+</description><pubDate>Tue, 25 May 2010 22:19:13 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/5/25/django-e-commerce/</guid></item><item><title>Exciting Python Developer Job</title><link>http://www.willmcgugan.com/blog/tech/2010/5/20/exciting-python-developer-job/</link><description>
+&lt;p&gt;Meebo, the instant messenger in your browser company, are seriously looking for Python developers right now to work in Mountain View, California. From what I can gather they are expanding, and are building a number of sites in the Django framework.&lt;/p&gt;</description><pubDate>Thu, 20 May 2010 23:32:05 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/5/20/exciting-python-developer-job/</guid></item><item><title>Damn foreign keys, stealing our jobs and women</title><link>http://www.willmcgugan.com/blog/tech/2010/5/1/damn-foreign-keys-stealing-our-jobs-and-women/</link><description>
+&lt;p&gt;Django has support for &lt;a href="http://docs.djangoproject.com/en/dev/ref/contrib/contenttypes/" class="external-link" title="docs.djangoproject.com"&gt;Generic Foreign Keys&lt;/a&gt;, which let you reference one model instance from another, without knowing up-front what that model type is. The classic use for something like this is for a commenting system; you need generic foreign keys &amp;ndash; or something like them &amp;ndash; because you wouldn't want a commenting system that only worked with a single model.&lt;/p&gt;
+&lt;p&gt;If you have ever used generic foreign keys in Django, you will know that it is not quite transparent to the developer; a little effort is required to manage the various &lt;em&gt;content types&lt;/em&gt;. I'll present here an alternative method to achieve this &lt;em&gt;late binding&lt;/em&gt; of foreign keys that doesn't require storing the type of the object (as generic foreign keys do) and is completely transparent to the developer. I'm sure I'm not the first to think of this method, but I haven't yet seen it used in other Django projects.&lt;/p&gt;
+&lt;p&gt;Rather than store the type of object in a separate field, we can create a new model for each foreign key type we want to reference. For example; lets say we have a &lt;code&gt;Rating&lt;/code&gt; model, and we want to rate &lt;code&gt;Articles&lt;/code&gt; and &lt;code&gt;Images&lt;/code&gt; &amp;ndash; we could do this by generating a &lt;code&gt;ArticlesRating&lt;/code&gt; model and a &lt;code&gt;ImagesRating&lt;/code&gt; model with appropriate foreign keys. The easiest way to do this is with a function that returns a parameterized class definition.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here's a snippet of code from a project I'm working on, that does just that:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;rating.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IntegerField&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Avg&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;IntegrityError&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;make_rating_model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rated_model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;namespace&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Rating&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+        &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;rated_object&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rated_model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;vote&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;IntegerField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blank&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Meta&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;abstract&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;
+            &lt;span class="n"&gt;db_table&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;rating_&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;_&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;namespace&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rated_model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+            &lt;span class="n"&gt;unique_together&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;rated_object&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__unicode__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;s rating of &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rated_object&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Rest of the methods snipped for brevity&lt;/span&gt;
+        &lt;span class="c"&gt;# Contact me if you would like the whole class&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Rating&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This isn't a model definition, rather it is a function that create a model definition. You can call it multiple times to return a &lt;code&gt;Rating&lt;/code&gt; model for each object you want a rating for. The function, &lt;code&gt;make_rating_model&lt;/code&gt; takes two parameters; the name of the model you want to rate, and a string that is used to generate the table name, to avoid naming conflicts.&lt;/p&gt;
+&lt;p&gt;To create a rating object you would &lt;code&gt;import ratings&lt;/code&gt; in your &lt;code&gt;models.py&lt;/code&gt; file and add the following:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ArticleRating&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ratings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_rating_model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Article&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mysite&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ImageRating&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ratings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_rating_model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Image&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mysite&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now if you &lt;code&gt;syncdb&lt;/code&gt; you will get two completely independent models with essentially the same interface &amp;ndash; which means you can write code that works equally well with model instances of either type.&lt;/p&gt;
+&lt;p&gt;This method doesn't quite replace generic foreign keys; if you don't know until runtime what model to reference, or if you require the objects to be in a single table, then you will still need generic foreign keys, but in my experience this is rarely the case.&lt;/p&gt;
+
+</description><pubDate>Sat, 01 May 2010 14:46:57 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2010/5/1/damn-foreign-keys-stealing-our-jobs-and-women/</guid></item><item><title>Django Desktop</title><link>http://www.willmcgugan.com/blog/tech/2009/12/20/django-desktop/</link><description>
+&lt;p&gt;I implemented a &lt;em&gt;theme&lt;/em&gt; system for &lt;a href="http://www.locidesktop.com/" class="external-link" title="www.locidesktop.com"&gt;locidesktop.com&lt;/a&gt; and thought it only fitting that the first theme I made was one for Django.&lt;/p&gt;
+&lt;p&gt;I present you with the &lt;a href="http://locidesktop.com/will/django/" class="external-link" title="locidesktop.com"&gt;Django themed Loci Desktop&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Here it is, in embedded form &amp;ndash; although you really need to click the above link to fully appreciate it.&lt;/p&gt;
+
+
+&lt;iframe src="http://locidesktop.com/will/django/?simple" style="width:100%;height:500px;"&gt;&lt;/iframe&gt;</description><pubDate>Sun, 20 Dec 2009 22:40:07 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/12/20/django-desktop/</guid></item><item><title>Talented front-end developer job for Web 2.0 company in Oxford</title><link>http://www.willmcgugan.com/blog/tech/2009/10/21/talented-front-end-developer-job-for-web-20-company-in-oxford/</link><description>
+&lt;p&gt;The company I work for, &lt;a href="http://www.2degreesnetwork.com" class="external-link" title="www.2degreesnetwork.com"&gt;2Degrees&lt;/a&gt;, is looking for a front-end developer to join our team.&lt;/p&gt;
+&lt;a href="/media/uploads/images/monkey.jpg" target="_blank"&gt;
+&lt;div id="oi-monkey" class="left" style="line-height:0;"&gt;
+&lt;div style="width:150px; height:190px; position:relative; overflow:hidden;"&gt;
+&lt;img src="/media/uploads/images/thumbs/monkey_150x190.jpg" width="150" height="190" alt="A smiling monkey" title="A smiling monkey" /&gt;
+&lt;div class="overlay-outer" style="position:relative; top:0px; height:190px; "&gt;
+&lt;div style="width:150px; height:190px; top:-190" class="image-overlay-background"&gt;
+&lt;/div&gt;
+&lt;div style="width:150px;height:190px;top:-190px;" class="image-overlay"&gt;
+&lt;div class="caption" style="width:150px;"&gt;
+&lt;p&gt;Are you a CSS monkey?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="oiarea-monkey" style="z-index:40;width:150px; height:190px; position:relative; top:-380px;"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;p&gt;We need a CSS monkey with a good working knowledge of browser quirks and the ability to get even IE6 looking good (although you don't have to &lt;em&gt;like&lt;/em&gt; it). It would help if you don't run away screaming from Javascript and can play well with the code monkeys.&lt;/p&gt;
+&lt;p&gt;More details are below. Email the address at the bottom of the job description, and mention this blog!&lt;/p&gt;</description><pubDate>Wed, 21 Oct 2009 14:58:09 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/10/21/talented-front-end-developer-job-for-web-20-company-in-oxford/</guid></item><item><title>Evolution of an Auto-Complete</title><link>http://www.willmcgugan.com/blog/tech/2009/9/12/evolution-of-an-auto-complete/</link><description>
+&lt;p&gt;My latests hobby-project has been pushed live, in invite-only beta form. Previously known as &lt;a href="http://willmcgugan.com/2009/8/1/links-desktop-screencast/" class="external-link" title="willmcgugan.com"&gt;Links Desktop&lt;/a&gt;, I have now dubbed it &lt;a href="http://locidesktop.com" class="external-link" title="locidesktop.com"&gt;Loci Desktop&lt;/a&gt;, after the &lt;a href="http://en.wikipedia.org/wiki/Special:Search?search=Loci+Method"&gt;Loci Method&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+&lt;a href="/media/uploads/images/autocomplete.png" target="_blank"&gt;
+
+
+    &lt;div id="oi-autocomplete" class="left" style="line-height:0;"&gt;
+        &lt;div style="width:250px; height:183px; position:relative; overflow:hidden;"&gt;
+
+            &lt;img src="/media/uploads/images/thumbs/autocomplete_250x183.jpg" width="250" height="183" alt="Screenshot of auto-completing urls in locidesktop.com" title="Screenshot of auto-completing urls in locidesktop.com"&gt;&lt;/img&gt;
+
+            &lt;div class="overlay-outer" style="position:relative; top:0px; height:183px; "&gt;
+                &lt;div style="width:250px; height:183px; top:-183"
+                    class="image-overlay-background" &gt;
+                &lt;/div&gt;
+                &lt;div style="width:250px;height:183px;top:-183px;"
+                     class="image-overlay"&gt;
+                    
+                    &lt;div class="caption" style="width:250px;"&gt;
+                    &lt;p&gt;Auto-complete in Loci Desktop&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id="oiarea-autocomplete" style="z-index:40;width:250px; height:183px; position:relative; top:-366px;"&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/a&gt;
+
+
+&lt;p&gt;One feature of Loci Desktop is that it will auto-complete URLs when you add new icons to your &amp;lsquo;desktop&amp;rsquo;. Auto-complete is one of those features that users expect these days. They want the app to figure out what they want with as few key-presses as possible &amp;ndash; and quite rightly so, &lt;em&gt;typing is such a chore&lt;/em&gt;!&lt;/p&gt;
+&lt;p&gt;The auto-complete system for Loci Desktop, in its initial state, was straight-forward to implement. The javascript and front-end was the most time-consuming part of the job, but the back-end Python code was trivial.&lt;/p&gt;
+
+
+
+&lt;h3&gt;Amoeba&lt;/h3&gt;
+
+&lt;p&gt;Alas, it was too slow to be practical. The list of URLs that I was auto-completing from came from a list of the top one million sites from Alexa.com, stored in MySQL and queried with the Django ORM. The query searched the urls for a substring, and sorted by the Alexa rank so the most popular sites were listed first.&lt;/p&gt;
+&lt;p&gt;Although it worked perfectly, the auto-complete code at the back-end hammered the server and took to long to return its result. Reducing the number of URLS to 100,000 helped, but didn't make it as usable as auto-complete in a desktop app.&lt;/p&gt;
+
+
+
+&lt;h3&gt;Opposable Thumbs&lt;/h3&gt;
+
+
+
+
+&lt;div class="pullout-left"&gt;
+&lt;p&gt;There are still some beta invites for Loci Desktop available. Contact me if you want one.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;I'm no expert on what goes on &lt;em&gt;under the hood&lt;/em&gt; in a database, but the conclusion I came to was that there was no way that the DB could produce an index for substring searches on-the-fly, and had to resort to comparing the substring with every entry in the database. With a million entries, that could never be fast.&lt;/p&gt;
+&lt;p&gt;Caching helped, but only for URLs that were previously searched for. But it occurred to me that if the results for all possible searches were cached then auto-complete would be blisteringly fast. I almost dismissed that idea as &lt;em&gt;crazy talk&lt;/em&gt;, but mulled it over anyway.&lt;/p&gt;
+&lt;p&gt;It turned out to be practical. There are a lot of substrings for any given URL. For example, &amp;ldquo;facebook&amp;rdquo; contains 8 one-character substrings, 7 two-character substrings ('fa', &amp;lsquo;ac&amp;rsquo;, &amp;lsquo;ce&amp;rsquo;, &amp;lsquo;eb&amp;rsquo;, &amp;lsquo;bo&amp;rsquo;, &amp;lsquo;oo&amp;rsquo;, &amp;lsquo;ok&amp;rsquo;), and so on. So there are going to be a log of substrings for each url &amp;ndash; but there will be a lot of substrings common to many urls, and I only need to store 10 &amp;lsquo;hits&amp;rsquo; for each substring.&lt;/p&gt;
+&lt;p&gt;Generating this substring index took quite a bit of brute force processing, but once uploaded to the server it means that I could use a single, extremely efficient query to generate the auto-completed urls. The query time went down from more than a second, to 0.002 seconds! A very satisfying result, which meant that the auto-complete would update almost as fast as I could type, at about 150 milliseconds per request.&lt;/p&gt;
+
+
+
+&lt;h3&gt;Making Tools&lt;/h3&gt;
+
+&lt;p&gt;Another optimization was to offload a bit of work to the client by caching in Javascript. It was trivial to implement, but not a particularity big win as it only speeded up auto-completed URLs that had been searched for previously (such as when you delete characters).&lt;/p&gt;
+
+
+
+&lt;h3&gt;Geek here, make fire!&lt;/h3&gt;
+
+&lt;p&gt;Although these optimizations made the auto-complete nice and fast, the small delay in receiving the first list of URLs meant that it wasn't obvious there was auto-complete if you hadn't used it. It would be preferable if the auto-complete selection appeared after the first key-press. So I generated a mapping of every letter and digit on to the corresponding list of urls and used that to auto-complete the first character, rather than make a round-trip to the server.&lt;/p&gt;
+&lt;p&gt;Making the first character auto-complete virtually instantaneous really made it feel snappier from the start. So a big win, for minimal effort.&lt;/p&gt;
+
+
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Databases are highly tuned pieces of software, but you can get big wins if you &lt;em&gt;massage&lt;/em&gt; your data in to a more efficient format!&lt;/p&gt;
+
+</description><pubDate>Sat, 12 Sep 2009 16:28:51 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/9/12/evolution-of-an-auto-complete/</guid></item><item><title>Links Desktop Teaser Screencast</title><link>http://www.willmcgugan.com/blog/tech/2009/8/1/links-desktop-screencast/</link><description>
+&lt;p&gt;In past blogs I've hinted on the fact that I'm working on a Javascript application in my spare time. It's not quite done yet, and wont be live for a few more weeks, but I do have something that I can show off.&lt;/p&gt;
+&lt;p&gt;This project is best explained in the form of a screencast. This is the first screencast I have ever made and I'm not sure if I have done it right, or if my humble server will cope with serving FLV files. If the server doesn't manage to keep up, I'll probably Youtube it.&lt;/p&gt;</description><pubDate>Sat, 01 Aug 2009 19:19:41 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/8/1/links-desktop-screencast/</guid></item><item><title>ETag magic with Django</title><link>http://www.willmcgugan.com/blog/tech/2009/7/20/etag-magic-with-django/</link><description>
+&lt;p&gt;An ETag is a feature of HTTP that allows for a web server to know if content has changed since the last time the browser visited the page. The client sends the ETag from the cached page in a header. If the ETag in the header matches the current ETag then the server lets the browser know that the cached is up-to-date by sending back a &lt;code&gt;304 Not Modified&lt;/code&gt; response.&lt;/p&gt;</description><pubDate>Mon, 20 Jul 2009 21:53:08 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/7/20/etag-magic-with-django/</guid></item><item><title>Python Job Alert</title><link>http://www.willmcgugan.com/blog/tech/2009/7/14/python-job-alert/</link><description>
+&lt;p&gt;My employer is looking for a new Python developer to work here in Oxford, UK. The company I work for runs &lt;a href="http://www.2degreesnetwork.com" class="external-link" title="www.2degreesnetwork.com"&gt;2degreesnetwork.com&lt;/a&gt;, which is &lt;em&gt;collaboration service for sustainable business&lt;/em&gt;. Basically, it's a social networking type of site for businesses to collaborate on climate change and related issues. I'm not officially allowed to say this, but the closest analogy is &amp;lsquo;Facebook for Businesses&amp;rsquo;. &lt;/p&gt;</description><pubDate>Tue, 14 Jul 2009 15:29:13 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/7/14/python-job-alert/</guid></item><item><title>Django like templates in Javascript</title><link>http://www.willmcgugan.com/blog/tech/2009/4/5/django-like-templates-in-javascript/</link><description>
+&lt;p&gt;Here's a quick &amp;lsquo;n&amp;rsquo; dirty Javascript function I hacked together that provides Django-like template substitution.&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;sformat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;template&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;template&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sr"&gt;/{{(.*?)}}/g&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data.&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Used something like this:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="nx"&gt;sformat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Hello, {{ name }}!&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Which returns the following string:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;Hello, World!&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Alas, it doesn't support anything other than substitution. If you need anything more advanced (loops etc), you should investigate &lt;a href="http://www.google.com/search?q=javascript+template+engines" class="external-link" title="www.google.com"&gt;Javascript template engines&lt;/a&gt;.&lt;/p&gt;
+
+</description><pubDate>Sun, 05 Apr 2009 16:47:43 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/4/5/django-like-templates-in-javascript/</guid></item><item><title>Misleading ImportErrors in Django</title><link>http://www.willmcgugan.com/blog/tech/2009/3/30/misleading-importerrors-in-django/</link><description>
+&lt;p&gt;I was debugging an issue with our Django app at work today; an &lt;code&gt;admin.py&lt;/code&gt; file wasn't being picked up, and nothing was appearing in the admin pages. It turned that an &lt;code&gt;ImportError&lt;/code&gt; was being thrown in the &lt;code&gt;admin.py&lt;/code&gt; and Django was interpreting this as the file not existing.&lt;/p&gt;
+&lt;p&gt;I'm assuming that the reason for this is that Django uses &lt;code&gt;__import__&lt;/code&gt; to import the module, and catches &lt;code&gt;ImportError&lt;/code&gt;'s if the &lt;code&gt;admin.py&lt;/code&gt; doesn't exist. The trouble with this is that if &lt;code&gt;admin.py&lt;/code&gt; &lt;em&gt;does&lt;/em&gt; exist, and throws an &lt;code&gt;ImportError&lt;/code&gt; of its own, Django will also interpret that as a missing &lt;code&gt;admin.py&lt;/code&gt; &amp;ndash; which can be misleading.&lt;/p&gt;
+&lt;p&gt;The only solution I can think of to more accurately handle this would be to programmaticaly examine the traceback to determine where the ImportError is thrown. If the traceback is one level deep, we know that the &lt;code&gt;ImportError&lt;/code&gt; was thrown because the module doesn't exists. If it is &lt;em&gt;greater&lt;/em&gt; than one level then we know the module was found, but has thrown an &lt;code&gt;ImportError&lt;/code&gt; of its own.&lt;/p&gt;
+&lt;p&gt;Here's a simple proof of concept:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="c"&gt;#check_import.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;traceback&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_import&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;__import__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ImportError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;exceptionType&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exceptionValue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exceptionTraceback&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exc_info&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;traceback&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_tb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exceptionTraceback&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mf"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;check_import&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;os&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;check_import&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;noimport&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;check_import&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;anotherlevel&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="c"&gt;#anotherlevel.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;thismoduledoesnotexist&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This produces the following when run:&lt;/p&gt;
+
+
+
+&lt;div class="code"&gt;&lt;pre&gt;True&lt;br/&gt;False&lt;br/&gt;True&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It would be nice if Django did something similar for its implicit imports. I think the best behaviour would be re-raise the ImportError if it the module does actually exist. That way, it is clear what the problem is. I may attempt to write a patch at some point, unless someone knows of a better solution.&lt;/p&gt;
+
+</description><pubDate>Mon, 30 Mar 2009 19:33:35 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/3/30/misleading-importerrors-in-django/</guid></item><item><title>The low-down on Django-Techblog</title><link>http://www.willmcgugan.com/blog/tech/2009/3/14/the-low-down-on-django-techblog/</link><description>
+&lt;p&gt;I figured I would write-up some of the features of Django Techblog, the blogging application I wrote to power this site. It does most of what you would expect from a blogging app, but there are a few features that it does differently. The main difference is &lt;a href="/tag/extended-markup/"&gt;extended markup&lt;/a&gt;, but there are a couple of other features that worthy of note:&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Multi-blog capable.&lt;/strong&gt; I want to blog on a variety of subjects, but because some of the things I post about (namely the geeky stuff) are only of interest to a select few, I risk turning away visitors who aren't interested in those techy posts. Categories and tags are one solution to this, but I prefer to have a number of blogs under an umbrella blog, each with its own posts, templates and tags. In Techblog, there is also a concept of a &lt;em&gt;channel&lt;/em&gt; which appears exactly like a blog from the front-end, but aggregates posts &amp;amp; tags from one or more blogs. In this site, the home-page at &lt;a href="/"&gt;/&lt;/a&gt; is actually a channel consisting of &lt;a href="/blog/tech/"&gt;/blog/tech/&lt;/a&gt; and &lt;a href="/blog/personal/"&gt;/blog/personal&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Microblogging.&lt;/strong&gt; Techblog has support for &lt;a href="http://twitter.com/willmcgugan" class="external-link" title="twitter.com"&gt;Twitter&lt;/a&gt; and potentially other microblogging services could be added. You add your twitter account details, which Techblog uses to poll your tweets and automatically post them to a specified blog. It filters out replies because they are rarely of interest to anyone other than who the reply is intended for, and also parses hashtags to create equivalent tags in the blog system. A microblog post can have a unique template (just a Django template) so they can have a different look and feel to regular posts. You can check my tweets in &lt;a href="/blog/microblog/"&gt;/blog/microblog/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Getting the Code&lt;/h3&gt;
+
+&lt;ul&gt;
+    
+&lt;/ul&gt;
+
+&lt;p&gt;The code for Django-techblog is licensed under my &lt;em&gt;politeware&lt;/em&gt; license, which means you can use it for any purpose you see fit, but I would appreciate a thank you! It shouldn't be too difficult to set-up if you have worked with Django, but I'd be happy to help if you experience any problems with it. See the Google Code page for the SVN url:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://code.google.com/p/djangotechblog/" class="external-link" title="code.google.com"&gt;http://code.google.com/p/djangotechblog/&lt;/a&gt;&lt;/p&gt;
+
+</description><pubDate>Sat, 14 Mar 2009 19:45:32 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/3/14/the-low-down-on-django-techblog/</guid></item><item><title>Fast Caching with Django and Nginx </title><link>http://www.willmcgugan.com/blog/tech/2009/3/1/fast-caching-with-django-and-nginx/</link><description>
+&lt;p&gt;I've been toying with optimizing the caching on my blog recently &amp;ndash; for my own interest (this humble blog doesn't get all that much traffic). All the same, any speed improvements will only mean snappier page-loads and greater capacity to handle a &lt;em&gt;slashdotting&lt;/em&gt;, or similar.&lt;/p&gt;
+&lt;p&gt;I discovered that Nginx has a &lt;a href="http://wiki.codemongers.com/NginxHttpMemcachedModule" class="external-link" title="wiki.codemongers.com"&gt;memcached module&lt;/a&gt;  that can serve pages directly from memcached without touching the file-system, or a downstream web-app. Which makes for &lt;em&gt;very&lt;/em&gt; fast response times. To get it working, you need to set a cache key named with the url of the page, and the value to the HTML. Alas, this means that it would not work with Django's caching mechanism due to the way Django caches unique pages based on the contents of the request header.&lt;/p&gt;
+</description><pubDate>Sun, 01 Mar 2009 21:40:12 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/3/1/fast-caching-with-django-and-nginx/</guid></item><item><title>More on extended-markup</title><link>http://www.willmcgugan.com/blog/tech/2009/2/26/more-on-extended-markup/</link><description>
+&lt;p&gt;In my &lt;a href="/2009/2/25/django-techblog-markup-system/"&gt;last post&lt;/a&gt;  I introduced extended-markup, which is the light-weight markup system used to generate posts in Django-Techblog. I'll cover a few other things it can do in this post.&lt;/p&gt;
+&lt;p&gt;When the Post model is saved to the database, the extended markup is parsed in to a structure that is basically a dictionary containing a list of chunks, and associated variables. The order that the chunks appear in each section is the same as the order they appear in the markup, unless a chunk variable called &lt;code&gt;priority&lt;/code&gt; is defined. This causes the chunks to be sorted in descending order of priority, chunks without a priority value are assigned a default of 100.&lt;/p&gt;
+</description><pubDate>Thu, 26 Feb 2009 20:08:04 +0000</pubDate><guid>http://www.willmcgugan.com/blog/tech/2009/2/26/more-on-extended-markup/</guid></item></channel></rss>
