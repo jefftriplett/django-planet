@@ -1,5 +1,25 @@
-# -*- coding: utf-8 -*-
-from setuptools import setup, find_packages
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from ez_setup import use_setuptools
+    use_setuptools()
+    from setuptools import setup, find_packages
+
+install_requires = [
+    'Django',
+    'feedparser>=4.1',
+    'django-tagging>=0.3.1',
+    'BeautifulSoup>=3.2.0',
+]
+
+tests_require = [
+    'django-jenkins>=0.11',
+    'pep8>=0.6.1',
+    'coverage>=3.5',
+]
+
+long_description = open("docs/usage.rst").read()
+
 
 setup(
     name="django-planet",
@@ -7,7 +27,6 @@ setup(
     url="http://github.com/matagus/django-planet",
     license="BSD",
     description="Django app to build a planet, RSS/Atom feeds aggregator.",
-    long_description=open("docs/usage.rst").read(),
 
     author="Matias Agustin Mendez",
     author_email="me@matagus.com.ar",
@@ -41,4 +60,9 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary",
     ],
     zip_safe=False,
+    long_description=long_description,
+    install_requires=install_requires,
+    tests_require=tests_require,
+    extras_require={'test': tests_require},
+    test_suite='runtests.runtests',
 )
