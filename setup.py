@@ -6,7 +6,7 @@ except ImportError:
     from setuptools import setup, find_packages
 
 install_requires = [
-    'Django',
+    'Django==1.3',
     'feedparser>=4.1',
     'django-tagging>=0.3.1',
     'BeautifulSoup>=3.2.0',
