@@ -285,7 +285,7 @@ def process_feed(feed_url, create=False, category_title=None):
                             pad.save()
 
                     # We send a post_created signal
-                    plogger.debug('post_created.send(sender=post)', post)
+                    plogger.debug('post_created.send(sender=%s)', post)
                     post_created.send(sender=post, instance=post)
 
             if not stop_retrieving:
