@@ -1,6 +1,8 @@
 # Django settings for sample_prject project.
 import os.path
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+import dj_database_url
+
+BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,15 +13,9 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
+    'default': dj_database_url.config(default='postgres:///planet.python.org')
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -45,29 +41,22 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media/")
+MEDIA_ROOT = os.path.join(BASE, 'media')
+MEDIA_URL = '/m/'
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/media/'
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/static/"
+STATIC_ROOT = os.path.join(BASE, 'static-root')
+STATIC_URL = '/static/'
 
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
-# Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/admin-media/'
+STATICFILES_DIRS = (os.path.join(BASE, 'static'),)
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '1vr8)knuz=-1n*l%2^_$*zjouv33&9xi9m^%a=!3)y+akcgpkr'
-
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -82,14 +71,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, "templates"),
-)
+ROOT_URLCONF = 'sample_project.urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -102,16 +84,23 @@ INSTALLED_APPS = (
     # 3rd party apps:
     'pagination',
     'tagging',
+    'south',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'planet.context_processors.context',
-)
+TEMPLATE_DIRS = [
+    os.path.join(BASE, 'templates')
+]
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.core.context_processors.request",
+    "django.contrib.messages.context_processors.messages",
+]
 
 try:
     from local_settings import *

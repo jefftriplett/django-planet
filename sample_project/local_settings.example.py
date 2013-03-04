@@ -20,4 +20,3 @@ DATABASES = {
 TIME_ZONE = 'America/BuenosAires'
 
 USER_AGENT = "django-planet/0.1"
-
