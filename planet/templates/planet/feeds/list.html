@@ -20,7 +20,7 @@
             <ul class="blog details">
                 <li>
                     <a href="{{ feed.feed_url }}" title="{% trans 'Subscribe to feed of' %} {{ feed.title }}">
-                        <img src="{{ MEDIA_URL }}images/feed.png" alt="Feed">
+                        <img src="{{ STATIC_URL }}images/feed.png" alt="Feed">
                     </a>
                     {% trans 'feed' %}: <a href="{{ feed.url }}" class="feed" title="{% trans 'Subscribe to this feed' %}">{{ feed.url }}</a>
                 </li>
@@ -28,7 +28,7 @@
                     {% trans 'web' %}: <a href="{{ feed.blog.url }}" title="{% trans 'Go to the original blog' %}">{{ feed.blog.url }}</a>
                 </li>
                 <li>
-                    {% trans 'browse' %} <a href="{% url planet_feed_detail feed.pk %}" class="feed" title="{% trans 'See the full list of posts from this feed' %}">{% trans 'latest posts' %}</a>
+                    {% trans 'browse' %} <a href="{% url 'planet_feed_detail' feed.pk %}" class="feed" title="{% trans 'See the full list of posts from this feed' %}">{% trans 'latest posts' %}</a>
                 </li>
             </ul>
         </li>

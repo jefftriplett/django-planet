@@ -10,7 +10,7 @@
     <meta http-equiv="content-language" content="en" />
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
     <link href="{{ STATIC_URL }}icons/shortcut.ico" rel="SHORTCUT ICON">
-    <link rel="meta" type="application/rdf+xml" title="FOAF" href="{% url planet_foaf %}" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="{% url 'planet_foaf' %}" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/960.css" />
     {% block head_feeds %}
@@ -30,7 +30,7 @@
         <div id="header">
             <div class="logo">
                 <h1>
-                    <a href="{% url planet_index %}" title="{{ site.name }}">{{ site.name }}</a>
+                    <a href="{% url 'planet_index' %}" title="{{ site.name }}">{{ site.name }}</a>
                 </h1>
             </div>
             <div id="nav">
@@ -52,7 +52,7 @@
                     {% if user.is_staff %}
                     <ul>
                         <li>
-                            <a href="{% url admin:index %}">{% trans 'admin site' %}</a>
+                            <a href="{% url 'admin:index' %}">{% trans 'admin site' %}</a>
                         </li>
                     </ul>
                     {% endif %}

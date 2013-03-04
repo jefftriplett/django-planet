@@ -26,9 +26,9 @@
                 </li>
                 {% for feed in blog.feed_set.all %}
                 <li>
-                    {% trans 'feed' %}: <a href="{% url planet_feed_detail feed.pk %}" class="feed" title="{% trans 'See the full list of post from this feed' %}">{{ feed.title }}</a>
+                    {% trans 'feed' %}: <a href="{% url 'planet_feed_detail' feed.pk %}" class="feed" title="{% trans 'See the full list of post from this feed' %}">{{ feed.title }}</a>
                     <a href="{{ feed.url }}" title="{% trans 'Subscribe to ' %} {{ feed.title }}">
-                        <img src="{{ MEDIA_URL }}images/feed.png" alt="{% trans 'RSS 2.0 Feed' %}" />
+                        <img src="{{ STATIC_URL }}images/feed.png" alt="{% trans 'RSS 2.0 Feed' %}" />
                     </a>
                 </li>
                 {% endfor %}
