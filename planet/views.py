@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-
-from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-
-from planet.models import Blog, Feed, Author, Post
-from planet.forms import SearchForm
-
 from tagging.models import Tag, TaggedItem
+
+from .forms import SearchForm
+from .models import Blog, Feed, Author, Post
 
 
 def index(request):

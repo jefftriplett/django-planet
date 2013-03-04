@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from django.contrib import admin
 
-from planet.models import (Blog, Generator, Feed, FeedLink, Post, PostLink,
+from .models import (Blog, Generator, Feed, FeedLink, Post, PostLink,
     Author, PostAuthorData, Enclosure, Category)
 
 
@@ -26,21 +25,24 @@ class EnclosureAdmin(admin.ModelAdmin):
 
 admin.site.register(Enclosure, EnclosureAdmin)
 
+
 class FeedAdmin(admin.ModelAdmin):
-    list_display = ("title", "url", "blog", "language", "generator",
-                    "category")
+    list_display = ("title", "is_active", "language", "category")
     list_filter = ("language", "generator", "category")
 
 admin.site.register(Feed, FeedAdmin)
+
 
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ("name", "email")
 
 admin.site.register(Author, AuthorAdmin)
 
+
 class EnclosureInline(admin.StackedInline):
     model = Enclosure
     extra = 0
+
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ("title", "feed", "url")
@@ -67,6 +69,7 @@ class FeedLinkAdmin(admin.ModelAdmin):
     list_filter = ("mime_type", "rel")
 
 admin.site.register(FeedLink, FeedLinkAdmin)
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("title", )

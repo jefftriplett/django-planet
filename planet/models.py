@@ -9,23 +9,26 @@
     [1] http://www.feedjack.org/
     [2] http://www.feedparser.org/
 """
-import feedparser
-from datetime import datetime
+from __future__ import unicode_literals
 
-from django.db import models
-from django.utils.translation import ugettext_lazy as _
-from django.contrib.sites.models import Site
+import feedparser
+
+from datetime import datetime
 from django.conf import settings
+from django.contrib.sites.models import Site
+from django.db import models
 from django.db.models.signals import pre_delete
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
 
 import tagging
 from tagging.models import Tag
 
-from planet.managers import (FeedManager, AuthorManager, BlogManager,
-    PostManager, GeneratorManager, PostLinkManager, FeedLinkManager,
-    EnclosureManager)
+from .managers import (FeedManager, AuthorManager, BlogManager, PostManager,
+    GeneratorManager, PostLinkManager, FeedLinkManager, EnclosureManager)
 
 
+@python_2_unicode_compatible
 class Blog(models.Model):
     """
     A model to store primary info about a blog or website that which feed or
@@ -43,13 +46,15 @@ class Blog(models.Model):
         verbose_name_plural = _("Blogs")
         ordering = ('title', 'url',)
 
-    def __unicode__(self):
-        return u'%s (%s)' % (self.title, self.url)
+    def __str__(self):
+        return '%s (%s)' % (self.title, self.url)
 
     @models.permalink
     def get_absolute_url(self):
         return ('planet.views.blog_detail', [str(self.id)])
 
+
+@python_2_unicode_compatible
 class Generator(models.Model):
     """
     The software or website that has built a feed
@@ -67,10 +72,11 @@ class Generator(models.Model):
         ordering = ('name', 'version',)
         unique_together = (("name", "link", "version"), )
 
-    def __unicode__(self):
-        return u'%s %s (%s)' % (self.name, self.version or "", self.link or "--")
+    def __str__(self):
+        return '%s %s (%s)' % (self.name, self.version or "", self.link or "--")
 
 
+@python_2_unicode_compatible
 class Category(models.Model):
     """
     Define Categories for Feeds. In this way a site can manage many
@@ -84,10 +90,11 @@ class Category(models.Model):
         verbose_name_plural = _("Feed Categories")
         ordering = ('title', 'date_created')
 
-    def __unicode__(self):
-        return u"%s" % (self.title,)
+    def __str__(self):
+        return "%s" % (self.title,)
 
 
+@python_2_unicode_compatible
 class Feed(models.Model):
     """
     A model to store detailed info about a parsed Atom or RSS feed
@@ -153,7 +160,7 @@ class Feed(models.Model):
             try:
                 USER_AGENT = settings.USER_AGENT
             except AttributeError:
-                print "Please set the variable USER_AGENT = <string> in your settings.py"
+                print("Please set the variable USER_AGENT = <string> in your settings.py")
                 exit(0)
 
             document = feedparser.parse(self.url, agent=USER_AGENT,
@@ -187,14 +194,15 @@ class Feed(models.Model):
                 self.generator = None
         super(Feed, self).save()
 
-    def __unicode__(self):
-        return u'%s (%s)' % (self.title, self.url)
+    def __str__(self):
+        return '%s (%s)' % (self.title, self.url)
 
     @models.permalink
     def get_absolute_url(self):
         return ('planet.views.feed_detail', [str(self.id)])
 
 
+@python_2_unicode_compatible
 class PostAuthorData(models.Model):
     """
     This is the intermediate model that holds the information of the post authors
@@ -211,12 +219,13 @@ class PostAuthorData(models.Model):
         verbose_name_plural = _("Post Author Data")
         ordering = ("author", "post", "is_contributor")
 
-    def __unicode__(self):
+    def __str__(self):
         author_type = self.is_contributor and "Contributor" or "Author"
-        return u'%s (%s - %s)' % (
+        return '%s (%s - %s)' % (
             self.author.name, author_type, self.post.title)
 
 
+@python_2_unicode_compatible
 class Post(models.Model):
     """
     A feed contains a collection of posts. This model stores them.
@@ -244,8 +253,8 @@ class Post(models.Model):
         ordering = ('-date_created', '-date_modified')
         unique_together = (('feed', 'guid'),)
 
-    def __unicode__(self):
-        return u"%s [%s]" % (self.title, self.feed.title)
+    def __str__(self):
+        return "%s [%s]" % (self.title, self.feed.title)
 
     @models.permalink
     def get_absolute_url(self):
@@ -260,6 +269,7 @@ def delete_asociated_tags(sender, **kwargs):
 pre_delete.connect(delete_asociated_tags, sender=Post)
 
 
+@python_2_unicode_compatible
 class Author(models.Model):
     """
     An author is everyone who wrote or has contributed to write a post.
@@ -277,14 +287,15 @@ class Author(models.Model):
         verbose_name_plural = _("Authors")
         ordering = ('name', 'email')
 
-    def __unicode__(self):
-        return u"%s (%s)" % (self.name, self.email,)
+    def __str__(self):
+        return "%s (%s)" % (self.name, self.email,)
 
     @models.permalink
     def get_absolute_url(self):
         return ('planet.views.author_detail', [str(self.id)])
 
 
+@python_2_unicode_compatible
 class FeedLink(models.Model):
     """
     Stores data contained in feedparser's feed.links for a given feed
@@ -303,10 +314,11 @@ class FeedLink(models.Model):
         ordering = ("feed", "rel", "mime_type")
         #unique_together = (("feed", "rel", "mime_type", "link"), )
 
-    def __unicode__(self):
-        return u"%s %s (%s)" % (self.feed.title, self.rel, self.mime_type)
+    def __str__(self):
+        return "%s %s (%s)" % (self.feed.title, self.rel, self.mime_type)
 
 
+@python_2_unicode_compatible
 class PostLink(models.Model):
     """
     Stores data contained in feedparser's feed.entries[i].links for a given feed
@@ -326,10 +338,11 @@ class PostLink(models.Model):
         ordering = ("post", "title", "rel")
         #unique_together = (("post", "rel", "mime_type", "title"), )
 
-    def __unicode__(self):
-        return u"%s %s (%s)" % (self.title, self.rel, self.post)
+    def __str__(self):
+        return "%s %s (%s)" % (self.title, self.rel, self.post)
 
 
+@python_2_unicode_compatible
 class Enclosure(models.Model):
     """
     Stores data contained in feedparser's feed.entries[i].enclosures for a given feed
@@ -348,6 +361,5 @@ class Enclosure(models.Model):
         ordering = ("post", "mime_type", "link")
         #unique_together = (("post", "link", "mime_type"), )
 
-    def __unicode__(self):
-        return u"%s [%s] (%s)" % (self.link, self.mime_type, self.post)
-
+    def __str__(self):
+        return "%s [%s] (%s)" % (self.link, self.mime_type, self.post)
