@@ -3,97 +3,140 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.views.generic import DetailView, ListView
 from tagging.models import Tag, TaggedItem
 
 from .forms import SearchForm
 from .models import Blog, Feed, Author, Post
 
 
-def index(request):
-    posts = Post.site_objects.all().order_by("-date_modified")
+class AuthorDetail(ListView):
+    context_object_name = 'posts'
+    paginate_by = 10
+    template_name = 'planet/authors/detail.html'
 
-    return render_to_response("planet/posts/list.html", {"posts": posts},
-        context_instance=RequestContext(request))
+    def get_context_data(self, **kwargs):
+        context = super(AuthorDetail, self).get_context_data(**kwargs)
+        author_pk = self.kwargs['pk']
+        context['author'] = get_object_or_404(Author, pk=author_pk)
+        tag = self.kwargs.get('tag', None)
+        if tag:
+            context['tag'] = get_object_or_404(Tag, name=tag)
+        return context
 
+    def get_queryset(self):
+        author_pk = self.kwargs['pk']
+        tag = self.kwargs.get('tag', None)
+        if tag:
+            tag = get_object_or_404(Tag, name=tag)
+            return TaggedItem.objects.get_by_model(Post.site_objects, tag).filter(
+                authors__pk=author_pk).order_by("-date_modified")
 
-def blogs_list(request):
-    blogs_list = Blog.site_objects.all()
+        else:
+            return Post.site_objects.filter(authors__pk=author_pk).order_by('-date_modified')
 
-    return render_to_response("planet/blogs/list.html",
-        {"blogs_list": blogs_list}, context_instance=RequestContext(request))
-
-
-def blog_detail(request, blog_id):
-    blog = get_object_or_404(Blog, pk=blog_id)
-
-    posts = Post.site_objects.filter(feed__blog=blog).order_by("-date_modified")
-
-    return render_to_response("planet/blogs/detail.html",
-                              {"blog": blog, "posts": posts},
-        context_instance=RequestContext(request))
-
-
-def feeds_list(request):
-    feeds_list = Feed.site_objects.all()
-
-    return render_to_response("planet/feeds/list.html",
-        {"feeds_list": feeds_list}, context_instance=RequestContext(request))
+author_detail = AuthorDetail.as_view()
 
 
-def feed_detail(request, feed_id, tag=None):
-    feed = get_object_or_404(Feed, pk=feed_id)
+class AuthorList(ListView):
+    model = Author
+    context_object_name = 'authors_list'
+    paginate_by = 20
+    template_name = 'planet/authors/list.html'
 
-    if tag:
-        tag = get_object_or_404(Tag, name=tag)
+    def get_queryset(self):
+        return Author.site_objects.all()
 
-        posts = TaggedItem.objects.get_by_model(
-            Post.site_objects, tag).filter(feed=feed).order_by("-date_modified")
-    else:
-        posts = Post.site_objects.filter(feed=feed).order_by("-date_modified")
-
-    return render_to_response("planet/feeds/detail.html",
-        {"feed": feed, "posts": posts, "tag": tag},
-        context_instance=RequestContext(request))
+authors_list = AuthorList.as_view()
 
 
-def authors_list(request):
-    authors = Author.site_objects.all()
+class BlogDetail(ListView):
+    context_object_name = 'posts'
+    paginate_by = 10
+    template_name = 'planet/blogs/detail.html'
 
-    return render_to_response("planet/authors/list.html",
-        {"authors_list": authors},
-        context_instance=RequestContext(request))
+    def get_context_data(self, **kwargs):
+        context = super(BlogDetail, self).get_context_data(**kwargs)
+        context['blog'] = get_object_or_404(Blog, pk=self.kwargs['pk'])
+        return context
 
+    def get_queryset(self):
+        blog_pk = self.kwargs['pk']
+        return Post.site_objects.filter(feed__blog__pk=blog_pk).order_by('-date_modified')
 
-def author_detail(request, author_id, tag=None):
-    author = get_object_or_404(Author, pk=author_id)
-
-    if tag:
-        tag = get_object_or_404(Tag, name=tag)
-
-        posts = TaggedItem.objects.get_by_model(Post.site_objects, tag).filter(
-            authors=author).order_by("-date_modified")
-    else:
-        posts = Post.site_objects.filter(
-            authors=author).order_by("-date_modified")
-
-    return render_to_response("planet/authors/detail.html",
-        {"author": author, "posts": posts, "tag": tag},
-        context_instance=RequestContext(request))
+blog_detail = BlogDetail.as_view()
 
 
-def posts_list(request):
-    posts = Post.site_objects.all().select_related("feed"
-        ).order_by("-date_modified")
+class BlogList(ListView):
+    model = Blog
+    context_object_name = 'blogs_list'
+    paginate_by = 10
+    template_name = 'planet/blogs/list.html'
 
-    return render_to_response("planet/posts/list.html", {"posts": posts},
-        context_instance=RequestContext(request))
+    def get_queryset(self):
+        return Blog.site_objects.all()
+
+blogs_list = BlogList.as_view()
 
 
-def post_detail(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
+class FeedDetail(ListView):
+    context_object_name = 'posts'
+    paginate_by = 10
+    template_name = 'planet/feeds/detail.html'
 
-    return render_to_response("planet/posts/detail.html", {"post": post},
-        context_instance=RequestContext(request))
+    def get_context_data(self, **kwargs):
+        context = super(FeedDetail, self).get_context_data(**kwargs)
+        feed_pk = self.kwargs['pk']
+        context['feed'] = get_object_or_404(Feed, pk=feed_pk)
+        tag = self.kwargs.get('tag', None)
+        if tag:
+            context['tag'] = get_object_or_404(Tag, name=tag)
+        return context
+
+    def get_queryset(self):
+        feed_pk = self.kwargs['pk']
+        tag = self.kwargs.get('tag', None)
+        if tag:
+            tag = get_object_or_404(Tag, name=tag)
+            return TaggedItem.objects.get_by_model(Post.site_objects, tag).filter(
+                feed__pk=feed_pk).order_by("-date_modified")
+
+        else:
+            return Post.site_objects.filter(feed__pk=feed_pk).order_by('-date_modified')
+
+feed_detail = FeedDetail.as_view()
+
+
+class FeedList(ListView):
+    model = Feed
+    context_object_name = 'feeds_list'
+    paginate_by = 10
+    template_name = 'planet/feeds/list.html'
+
+    def get_queryset(self):
+        return Feed.site_objects.all()
+
+feeds_list = FeedList.as_view()
+
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = 'planet/posts/detail.html'
+
+post_detail = PostDetail.as_view()
+
+
+class PostList(ListView):
+    model = Post
+    context_object_name = 'posts'
+    paginate_by = 10
+    template_name = 'planet/posts/list.html'
+
+    def get_queryset(self):
+        return Post.site_objects.all().select_related("feed").order_by("-date_modified")
+
+index = PostList.as_view()
+posts_list = PostList.as_view()
 
 
 def tag_detail(request, tag):
