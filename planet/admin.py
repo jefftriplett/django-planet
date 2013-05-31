@@ -8,6 +8,7 @@ from .models import (Blog, Generator, Feed, FeedLink, Post, PostLink,
 class PostLinkAdmin(admin.ModelAdmin):
     list_display = ("title", "rel", "mime_type", "post", "link")
     list_filter = ("rel", "mime_type")
+    raw_id_fields = ['post']
 
 admin.site.register(PostLink, PostLinkAdmin)
 
@@ -15,6 +16,7 @@ admin.site.register(PostLink, PostLinkAdmin)
 class PostAuthorDataAdmin(admin.ModelAdmin):
     list_display = ("author", "is_contributor", "post")
     list_filter = ("is_contributor", "author")
+    raw_id_fields = ['post', 'author']
 
 admin.site.register(PostAuthorData, PostAuthorDataAdmin)
 
@@ -22,6 +24,7 @@ admin.site.register(PostAuthorData, PostAuthorDataAdmin)
 class EnclosureAdmin(admin.ModelAdmin):
     list_display = ("post", "mime_type", "length", "link")
     list_filter = ("mime_type", )
+    raw_id_fields = ['post']
 
 admin.site.register(Enclosure, EnclosureAdmin)
 
@@ -29,6 +32,7 @@ admin.site.register(Enclosure, EnclosureAdmin)
 class FeedAdmin(admin.ModelAdmin):
     list_display = ("title", "is_active", "language", "category")
     list_filter = ("language", "generator", "category")
+    raw_id_fields = ['blog', 'site', 'generator', 'category']
 
 admin.site.register(Feed, FeedAdmin)
 
@@ -46,7 +50,9 @@ class EnclosureInline(admin.StackedInline):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ("title", "feed", "url")
-    list_filter = ("feed", )
+    list_filter = ["feed"]
+    raw_id_fields = ['feed']
+
     # filter_horizontal = ('tags',)
 
 admin.site.register(Post, PostAdmin, inlines=[EnclosureInline])
@@ -67,6 +73,7 @@ admin.site.register(Generator, GeneratorAdmin)
 class FeedLinkAdmin(admin.ModelAdmin):
     list_display = ("feed", "mime_type", "rel", "link")
     list_filter = ("mime_type", "rel")
+    raw_id_fields = ['feed']
 
 admin.site.register(FeedLink, FeedLinkAdmin)
 
