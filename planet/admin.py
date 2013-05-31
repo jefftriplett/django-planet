@@ -53,8 +53,6 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ["feed"]
     raw_id_fields = ['feed']
 
-    # filter_horizontal = ('tags',)
-
 admin.site.register(Post, PostAdmin, inlines=[EnclosureInline])
 
 
