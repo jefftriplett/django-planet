@@ -41,7 +41,7 @@ author_detail = AuthorDetail.as_view()
 class AuthorList(ListView):
     model = Author
     context_object_name = 'authors_list'
-    paginate_by = 20
+    paginate_by = 40
     template_name = 'planet/authors/list.html'
 
     def get_queryset(self):
