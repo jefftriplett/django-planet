@@ -1,13 +1,15 @@
 """
 Tests for django planet
 """
+import feedparser
 import os
+
 from django.core.management import call_command
 from django.test import TestCase
 
-from planet.models import Post, Feed
+from ..models import Post, Feed
 
-import feedparser
+
 original_parse = feedparser.parse
 
 

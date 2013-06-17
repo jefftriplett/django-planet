@@ -5,19 +5,18 @@ Several useful template tags!
 """
 
 import re
-from datetime import datetime, timedelta
 
+from datetime import datetime, timedelta
 from django import template
+from django.conf import settings
+from django.template import TemplateSyntaxError, Node, loader, Variable
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
-from django.template import TemplateSyntaxError, Node, loader, Variable
-from django.utils.translation import ugettext as _
 from django.utils.text import smart_split
-from django.conf import settings
-
-from planet.models import Author, Feed, Post
-
+from django.utils.translation import ugettext as _
 from tagging.models import Tag, TaggedItem
+
+from ..models import Author, Feed, Post
 
 
 register = template.Library()
