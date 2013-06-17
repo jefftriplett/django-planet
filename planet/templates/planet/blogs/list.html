@@ -1,5 +1,5 @@
 {% extends "planet/base.html" %}
-{% load i18n pagination_tags  %}
+{% load i18n %}
 
 {% block page_title %}{% trans "Blogs list" %} - {{ block.super }}{% endblock %}
 {% block extrameta %}
@@ -10,7 +10,6 @@
 {% block content %}
 <h2>{% trans "Blogs" %}</h2>
 <div class="blogs list">
-    {% autopaginate blogs_list 50 %}
     <ul>
     {% for blog in blogs_list %}
         <li>
@@ -35,6 +34,6 @@
             </ul>
         </li>
     {% endfor %}
-    {% paginate %}
+    {% include "includes/pagination.html" %}
 </div>
 {% endblock %}

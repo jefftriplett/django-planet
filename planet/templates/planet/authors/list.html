@@ -1,5 +1,5 @@
 {% extends "planet/base.html" %}
-{% load i18n pagination_tags planet_tags %}
+{% load i18n planet_tags %}
 
 {% block page_title %}{% trans 'Authors list' %} - {{ block.super }}{% endblock %}
 {% block extrameta %}
@@ -10,7 +10,6 @@
 {% block content %}
 <h2>{% trans "Authors" %}</h2>
 <ul class="author list">
-    {% autopaginate authors_list 20 %}
     {% for author in authors_list %}
         <li>
             <h3>
@@ -21,6 +20,7 @@
             {% trans 'writes for' %} {% feeds_for_author author %}
         </p>
     {% endfor %}
-    {% paginate %}
+
+    {% include "includes/pagination.html" %}
 </ul>
 {% endblock %}

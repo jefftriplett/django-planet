@@ -1,5 +1,5 @@
 {% extends "planet/base.html" %}
-{% load i18n pagination_tags %}
+{% load i18n %}
 
 {% block content %}
 <h2>{% trans 'Authors talking about' %} {{ tag }}</h2>
@@ -12,7 +12,7 @@
             </a>
         </p>
     {% endfor %}
-    {% paginate %}
+    {% include "includes/pagination.html" %}
 </div>
 {% endblock %}
 

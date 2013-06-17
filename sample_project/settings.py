@@ -82,7 +82,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'planet',
     # 3rd party apps:
-    'pagination',
     'tagging',
     'south',
 )

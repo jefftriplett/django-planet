@@ -1,5 +1,5 @@
 {% extends "planet/base.html" %}
-{% load i18n pagination_tags tagging_tags planet_tags %}
+{% load i18n tagging_tags planet_tags %}
 
 {% block page_title %}{{ author.name }} {% trans 'has written the following posts' %} - {{ block.super }}{% endblock %}
 {% block extrameta %}
@@ -44,13 +44,12 @@
         </div>
     {% endif %}
 
-    {% autopaginate posts 20 %}
     {% for post in posts %}
         <div class="post {% cycle 'even' 'odd' %} clearfix">
             {% post_details post %}
         </div>
     {% endfor %}
-    {% paginate %}
+    {% include "includes/pagination.html" %}
 {% endblock %}
 
 {% block right_column %}

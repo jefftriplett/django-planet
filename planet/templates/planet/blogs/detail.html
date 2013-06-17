@@ -1,5 +1,5 @@
 {% extends "planet/base.html" %}
-{% load i18n pagination_tags planet_tags %}
+{% load i18n planet_tags %}
 
 {% block page_title %}{% trans "Blog" %}: {{ blog.tile }} - {% trans 'Posts in' %} {{ block.super }}{% endblock %}
 {% block extrameta %}
@@ -26,7 +26,6 @@
         <h3>{% trans 'Posts under tag' %}: <strong>{{ tag }}</strong></h3>
     {% endif %}
 
-    {% autopaginate posts 20 %}
     {% for post in posts %}
         <div class="post {% cycle 'even' 'odd' %} clearfix">
             {% post_details post %}
@@ -41,7 +40,7 @@
         </p>
     {% endif %}
 
-    {% paginate %}
+    {% include "includes/pagination.html" %}
 {% endblock %}
 
 {% block right_column %}
